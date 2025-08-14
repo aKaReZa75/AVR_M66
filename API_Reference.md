@@ -96,7 +96,7 @@ M66_SendAtCmd(__M66_CMD_SignalQua, "+CSQ:", 1000);
 
 ```c
 #include "aKaReZa.h"
-#include "m66.h"
+#include "M66.h"
 
 extern volatile bool usart_RxFlag;   /**< True: Data has been received completely */   
 extern char usart_RxBuffer[__usart_RxBufferSize]; /* Buffer to store received data, with defined size */
