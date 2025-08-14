@@ -1,7 +1,6 @@
 # M66 GSM Module Integration with AVR Microcontroller
 The M66 GSM module enables cellular communication capabilities such as SMS, voice, and GPRS data transfer. This repository focuses on integrating the M66 module with the ATmega328P microcontroller using USART for serial communication. It includes initialization routines, AT command handling, and practical examples for sending messages and establishing network connections. Developed using PlatformIO and VSCode, this project is ideal for embedded developers exploring GSM-based IoT solutions.
 
-
 <table>
   <tr>
   <td valign="top">
