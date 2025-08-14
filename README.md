@@ -41,6 +41,10 @@ The M66 GSM module enables cellular communication capabilities such as SMS, voic
 > The resources are detailed in the sections below.  
 > To access any of them, simply click on the corresponding blue link.
 
+- [API Reference](./API_Reference.md)  
+  ---
+  This section provides detailed descriptions of the functions in the `m66.h` and `m66.c` files for managing GSM operations using the M66 module. The library enables seamless interaction with the module through USART, supporting initialization routines, SMS transmission, and direct AT command execution. These APIs abstract the complexity of GSM communication, allowing developers to integrate mobile connectivity into embedded projects with ease.
+
 > [!CAUTION]
 > This tutorial has not yet **started!**
 
