@@ -44,9 +44,34 @@ The M66 GSM module enables cellular communication capabilities such as SMS, voic
   ---
   This section provides detailed descriptions of the functions in the `m66.h` and `m66.c` files for managing GSM operations using the M66 module. The library enables seamless interaction with the module through USART, supporting initialization routines, SMS transmission, and direct AT command execution. These APIs abstract the complexity of GSM communication, allowing developers to integrate mobile connectivity into embedded projects with ease.
 
-> [!CAUTION]
-> This tutorial has not yet **started!**
-
+```plaintext
+📁 Quectel M66
+    └── [aKaReZa 113 - Quectel M66 - PART A]
+        ├─ Setup — New GSM project and module configuration.
+        ├─ AT Commands — Review and usage.
+        ├─ Functions — `M66_Init()`, `M66_SendSMS()`, `M66_SendAtCmd()`.
+        ├─ SMS — Sending messages to specified numbers.
+        └─ Debugging — Common issues and fixes.
+```
+<table style="border-collapse: collapse;">
+  <tr>
+    <td valign="top" style="padding: 0 10px;">
+      <h3 style="margin: 0;">
+        <a href="https://youtu.be/1ndIc5NdtNg">aKaReZa 113 – AVR, Quectel M66 - PART A</a>
+      </h3>
+      <p style="margin: 8px 0 0;">
+        Learn how to program the Quectel M66 GSM module using AVR microcontrollers. This video walks through project setup, AT command handling, and writing practical functions like <code>M66_Init()</code> and <code>M66_SendSMS()</code> for real-world GSM communication.
+      </p>
+    </td>
+    <td width="360" valign="top">
+      <a href="https://youtu.be/1ndIc5NdtNg">
+        <img src="https://img.youtube.com/vi/1ndIc5NdtNg/maxresdefault.jpg"
+             width="360"
+             alt="aKaReZa 113 – AVR, Quectel M66 - PART A Thumbnail"/>
+      </a>
+    </td>
+  </tr>  
+</table>
 
 # 💻 How to Use Git and GitHub
 To access the repository files and save them on your computer, there are two methods available:
