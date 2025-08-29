@@ -267,10 +267,10 @@ M66_Res_T M66_CheckSMS(void)
     char _incomeText[20];
     char _gsmCmd[20];
     uint8_t _Status = 0;
-    uint8_t _SMSnum = 0;               /**< Number of the SMS message in the memory */
+    uint8_t _SMSnum = 0;   /**< Number of the SMS message in the memory */
 
-    /* Extract the SMS number from the GSM buffer   */
-    sscanf((const char*)usart_RxBuffer, "\r\n+CMTI: \"SM\",%hhu\r\n", &_SMSnum);
+    /* Extract the SMS number from the usart_RxBuffer */
+    sscanf(usart_RxBuffer, "\r\n+CMTI: \"SM\",%hhu\r\n", &_SMSnum);
     if(_SMSnum == 0)
     {
         _SMSnum = 1;
