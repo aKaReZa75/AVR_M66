@@ -263,18 +263,18 @@ M66_Res_T M66_SendAtCmd(char* _CMD, char* _Reponse, int16_t _TimeOut)
  */
 M66_Res_T M66_CheckSMS(void)
 {
-    char PhoneNumber[14];
-    char IncomeTex[241];
-    uint8_t Status = 0;
+    char _phoneNumber[14];
+    char _incomeText[241];
+    uint8_t _Status = 0;
         
     usart_Flush();
     M66_SendAtCmd("AT+CMGR=1", __M66_Okey, __M66_Default_TimeOut);
     while(!usart_RxFlag);
 
     // Parse SMS content
-    Status = sscanf(usart_RxBuffer, "\r\n+CMGR: \"%*[^\"]\",\"%[^\"]\",\"\",\"%*[^\"]\"\r\n%[^\r]\r\n", PhoneNumber, IncomeTex);
+    _Status = sscanf(usart_RxBuffer, "\r\n+CMGR: \"%*[^\"]\",\"%[^\"]\",\"\",\"%*[^\"]\"\r\n%[^\r]\r\n", _phoneNumber, _incomeText);
     
-    if(Status != 2)
+    if(_Status != 2)
     {
         return M66_Res_ERR;
     };
