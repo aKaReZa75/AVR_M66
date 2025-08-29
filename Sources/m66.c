@@ -232,13 +232,6 @@ M66_Res_T M66_SendAtCmd(char* _CMD, char* _Reponse, int16_t _TimeOut)
 };
 
 
-/**
- * @brief Checks for incoming SMS messages and parses the content.
- * 
- * @details Reads the first SMS message and parses its content
- * @return M66_Res_T Result of the SMS check operation.
- */
-
 
 /**
  * @brief Checks for incoming SMS messages and parses the content.
