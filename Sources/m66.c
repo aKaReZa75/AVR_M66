@@ -17,6 +17,10 @@
 #include "M66.h"
 
 
+extern volatile bool usart_RxFlag;   /**< True: Data has been received completely */   
+extern char usart_RxBuffer[__usart_RxBufferSize]; /* Buffer to store received data, with defined size */
+
+
 /**
  * @brief Initializes the M66 GSM module
  * @details Performs module startup and configuration sequence
@@ -269,7 +273,6 @@ M66_Res_T M66_CheckSMS(void)
     char PhoneNumber[14];
     char IncomeTex[241];
     uint8_t Status = 0;
-    char alcd_Buffer[17];
         
     usart_Flush();
     M66_SendAtCmd("AT+CMGR=1", __M66_Okey, __M66_Default_TimeOut);
