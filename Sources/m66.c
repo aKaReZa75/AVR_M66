@@ -155,28 +155,41 @@ M66_Res_T M66_Config(void)
 };
 
 
+
 /**
  * @brief Sends an SMS message to a specified phone number.
- * 
- * @param _PhoneNumber Destination phone number (string)
- * @param _Text Pointer to the message text string.
- * @return M66_Res_T Status of SMS sending operation
+ *
+ * @param _PhoneNumber Destination phone number (null-terminated string).
+ * @param _Text        Pointer to the SMS text (null-terminated string).
+ * @return M66_Res_T   Result of the SMS sending operation.
+ *
+ * @note Why `Ctrl+Z` is sent on error:
+ *       The command `AT+CMGS="..."` switches the modem into **SMS text entry mode** and the modem
+ *       indicates readiness with the `'>'` prompt. If the prompt is not detected (timeout,
+ *       partial/late response, or any non-OK status), the modem might still be in text-entry state
+ *       and will interpret any subsequent bytes as SMS payload rather than AT commands.
+ *       To **force the modem out of text-entry mode** and restore normal command parsing, the code
+ *       transmits **Ctrl+Z (0x1A)** even when `_Res != M66_Res_OK`. This acts as a universal
+ *       end-of-message terminator, ensuring the modem exits the input state and future AT commands
+ *       are processed correctly. 
  */
 M66_Res_T M66_SendSMS(char* _PhoneNumber, char* _Text)
 {
     M66_Res_T _Res = M66_Res_ERR;
     char _CMD[25];
     
-    // Prepare and send SMS command
+    /* Prepare and send SMS command */
     sprintf(_CMD, "AT+CMGS=\"%s\"", _PhoneNumber);
     _Res = M66_SendAtCmd(_CMD, ">", __M66_Default_TimeOut); 
 
     if(_Res != M66_Res_OK)
     {
+        /* Send Ctrl+Z to terminate any pending text-entry state */
+        usart_Write(__M66_CtrlZ);        
         return _Res;
     };
 
-    // Send message content and termination character
+    /* Send message content and termination character */
     usart_Puts(_Text);
     usart_Write(__M66_CtrlZ);
 
