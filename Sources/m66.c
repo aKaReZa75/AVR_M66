@@ -264,16 +264,29 @@ M66_Res_T M66_SendAtCmd(char* _CMD, char* _Reponse, int16_t _TimeOut)
 M66_Res_T M66_CheckSMS(void)
 {
     char _phoneNumber[14];
-    char _incomeText[241];
+    char _incomeText[20];
+    char _gsmCmd[20];
     uint8_t _Status = 0;
-        
+    uint8_t _SMSnum = 0;               /**< Number of the SMS message in the memory */
+
+    /* Extract the SMS number from the GSM buffer   */
+    sscanf((const char*)usart_RxBuffer, "\r\n+CMTI: \"SM\",%hhu\r\n", &_SMSnum);
+    if(_SMSnum == 0)
+    {
+        _SMSnum = 1;
+    };
+
     usart_Flush();
-    M66_SendAtCmd("AT+CMGR=1", __M66_Okey, __M66_Default_TimeOut);
+
+    memset(_gsmCmd, '\0', sizeof(_gsmCmd));
+    sprintf(_gsmCmd, "AT+CMGR=%d", _SMSnum);
+    M66_SendAtCmd(_gsmCmd, __M66_Okey, __M66_Default_TimeOut);
     while(!usart_RxFlag);
 
     // Parse SMS content
+    memset(_phoneNumber, '\0', sizeof(_phoneNumber));
+    memset(_incomeText, '\0', sizeof(_incomeText));
     _Status = sscanf(usart_RxBuffer, "\r\n+CMGR: \"%*[^\"]\",\"%[^\"]\",\"\",\"%*[^\"]\"\r\n%[^\r]\r\n", _phoneNumber, _incomeText);
-    
     if(_Status != 2)
     {
         return M66_Res_ERR;
