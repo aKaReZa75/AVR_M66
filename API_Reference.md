@@ -8,6 +8,16 @@ This library provides a complete interface for controlling the M66 GSM module wi
 > See documentation for:  
 > - Core macros: [https://github.com/aKaReZa75/AVR/blob/main/Macros.md](https://github.com/aKaReZa75/AVR/blob/main/Macros.md)  
 > - USART library: [https://github.com/aKaReZa75/AVR_USART](https://github.com/aKaReZa75/AVR_USART)  
+> Additional requirements:  
+> - The USART receive buffer size (inside **usart.h**. ) must be increased by setting:  
+>   ```c
+>   #define __usart_RxBufferSize 340
+>   ```
+>    
+> - Global interrupts must be enabled for proper USART operation, which can be done using the following macro:  
+>   ```c
+>   globalInt_Enable
+>   ```
 
 | Feature                  | Configuration               |
 |--------------------------|-----------------------------|
