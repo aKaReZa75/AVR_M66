@@ -115,7 +115,7 @@ int main(void)
     
     while(1) 
     {
-        if(!usart_RxFlag)
+        if(usart_RxFlag)
         {
           if(strstr(usart_RxBuffer,"+CMTI") != NULL)
           {
