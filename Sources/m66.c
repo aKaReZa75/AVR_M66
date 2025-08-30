@@ -293,7 +293,7 @@ M66_Res_T M66_CheckSMS(void)
 
     memset(_gsmCmd, '\0', sizeof(_gsmCmd));
     sprintf(_gsmCmd, "AT+CMGR=%d", _SMSnum);
-    M66_SendAtCmd(_gsmCmd, __M66_Okey, __M66_Default_TimeOut);
+    M66_SendAtCmd(_gsmCmd, __M66_Okey, 1);
     while(!usart_RxFlag);
 
     // Parse SMS content
