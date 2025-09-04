@@ -130,6 +130,10 @@ int main(void)
           if(strstr(usart_RxBuffer,"+CMTI") != NULL)
           {
             M66_CheckSMS();
+          }
+          else
+          {
+            usart_Flush();
           };
         };
     };
