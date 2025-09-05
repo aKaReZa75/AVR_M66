@@ -145,7 +145,7 @@ M66_Res_T M66_Config(void)
     };
 
     // Delete all SMS messages
-    _Res = M66_SendAtCmd(__M66_CMD_SMSdellAll, __M66_Okey, __M66_Default_TimeOut); 
+    _Res = M66_SendAtCmd(__M66_CMD_SMSdellAll, __M66_Okey, __M66_DelSMS_TimeOut); 
     if(_Res != M66_Res_OK)
     {
         return _Res;
@@ -305,7 +305,7 @@ M66_Res_T M66_CheckSMS(void)
         return M66_Res_ERR;
     };
 
-    M66_SendAtCmd(__M66_CMD_SMSdellAll, __M66_Okey, __M66_Default_TimeOut); 
+    M66_SendAtCmd(__M66_CMD_SMSdellAll, __M66_Okey, __M66_DelSMS_TimeOut); 
 
     usart_Flush();
 
