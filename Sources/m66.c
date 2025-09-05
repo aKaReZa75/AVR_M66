@@ -305,6 +305,8 @@ M66_Res_T M66_CheckSMS(void)
         return M66_Res_ERR;
     };
 
+    M66_SendAtCmd(__M66_CMD_SMSdellAll, __M66_Okey, __M66_Default_TimeOut); 
+
     usart_Flush();
 
     return M66_Res_OK;
