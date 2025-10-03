@@ -46,19 +46,28 @@ The M66 GSM module enables cellular communication capabilities such as SMS, voic
 
 ```plaintext
 📁 Quectel M66
-     ├── [aKaReZa 113 - Quectel M66 - PART A]
-     │     ├─ Setup — New GSM project and module configuration.
-     │     ├─ AT Commands — Review and usage.
-     │     ├─ Functions — `M66_Init()`, `M66_SendSMS()`, `M66_SendAtCmd()`.
-     │     ├─ SMS — Sending messages to specified numbers.
-     │     └─ Debugging — Common issues and fixes.
-     │
-     └── [aKaReZa 116 - Quectel M66 - PART B]
-           ├─ Response — Parsing AT command replies.
-           ├─ Startup — `M66_startUp()` function design.
-           ├─ Timeout — Managing delays and avoiding lockups.
-           ├─ Errors — GSM-specific issues and fixes.
-           └─ Reliability — Clean code for stable communication.
+Quectel M66
+└── AVR Integration
+    ├── [aKaReZa 113 - PART A]
+    │     ├─ Setup — New GSM project and module configuration.
+    │     ├─ AT Commands — Review and usage.
+    │     ├─ Functions — `M66_Init()`, `M66_SendSMS()`, `M66_SendAtCmd()`.
+    │     ├─ SMS — Sending messages to specified numbers.
+    │     └─ Debugging — Common issues and fixes.
+    │
+    ├── [aKaReZa 116 - PART B]
+    │     ├─ Response — Parsing AT command replies.
+    │     ├─ Startup — `M66_startUp()` function design.
+    │     ├─ Timeout — Managing delays and avoiding lockups.
+    │     ├─ Errors — GSM-specific issues and fixes.
+    │     └─ Reliability — Clean code for stable communication.
+    │
+    └── [aKaReZa 117 - PART C]
+          ├─ SMS Rx — Detecting incoming messages via +CMTI.
+          ├─ Parsing — Using `sscanf()` and scansets for data extraction.
+          ├─ Function — `M66_CheckSMS()` implementation.
+          ├─ Execution — Testing on RCS-AVR board.
+          └─ Control — Relay activation based on SMS content.
 ```
 <table style="border-collapse: collapse;">
   <tr>
@@ -93,6 +102,24 @@ The M66 GSM module enables cellular communication capabilities such as SMS, voic
         <img src="https://img.youtube.com/vi/Sg0c39_p_TM/maxresdefault.jpg"
              width="360"
              alt="aKaReZa 116 – AVR, Quectel M66 - PART B Thumbnail"/>
+      </a>
+    </td>
+  </tr>
+
+  <tr>
+    <td valign="top" style="padding: 0 10px;">
+      <h3 style="margin: 0;">
+        <a href="https://youtu.be/M1o16PILNKs">aKaReZa 117 – AVR, Quectel M66 - PART C</a>
+      </h3>
+      <p style="margin: 8px 0 0;">
+        Take your GSM integration to the next level by learning how to receive and parse SMS messages using AVR and the Quectel M66 module. This video walks through project setup, <code>+CMTI</code> message detection, <code>sscanf()</code> parsing, and relay control based on SMS content. It’s a practical blueprint for building SMS-driven control systems.
+      </p>
+    </td>
+    <td width="360" valign="top">
+      <a href="https://youtu.be/M1o16PILNKs">
+        <img src="https://img.youtube.com/vi/M1o16PILNKs/maxresdefault.jpg"
+             width="360"
+             alt="aKaReZa 117 – AVR, Quectel M66 - PART C Thumbnail"/>
       </a>
     </td>
   </tr>
